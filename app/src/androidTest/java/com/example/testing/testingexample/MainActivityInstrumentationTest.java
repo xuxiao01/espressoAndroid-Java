@@ -31,16 +31,19 @@ public class MainActivityInstrumentationTest {
     @Rule
     public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(
             MainActivity.class);
+    @Rule
     public ReportHelper reportHelper = Factory.getReportHelper();
 
     @Test
+
     public void sayHello(){
+
         onView(withId(R.id.editText)).perform(typeText(STRING_TO_BE_TYPED), closeSoftKeyboard()); //line 1
-
         onView(withText("Say hello!")).perform(click()); //line 2
-
+        reportHelper.label("sayHello");
         String expectedText = "Hello, " + STRING_TO_BE_TYPED + "!";
         onView(withId(R.id.textView)).check(matches(withText(expectedText))); //line 3
+
     }
     @After
     public void TearDown(){
