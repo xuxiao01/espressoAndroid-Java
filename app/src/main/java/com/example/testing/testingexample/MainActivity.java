@@ -16,6 +16,7 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        MobileCenter.setLogUrl("https://in-staging-south-centralus.staging.avalanch.es");
         MobileCenter.start(getApplication(), "43f3c183-90d2-427f-ab4c-3a201fb94b9b",
                 Analytics.class, Crashes.class);
         super.onCreate(savedInstanceState);
